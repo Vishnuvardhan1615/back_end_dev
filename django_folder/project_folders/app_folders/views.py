@@ -11,7 +11,7 @@ def api_calling(request):
     elif request.method == 'POST':
         try:
             data = json.loads(request.body)
-            name = data.get('name', 'Guest')  # example: extract "name" field
+            name = data.get('username', 'Guest')  # example: extract "name" field
             return JsonResponse({'message': f'Hello, {name}! This is a POST response!'})
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
